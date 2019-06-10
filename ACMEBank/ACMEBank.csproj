@@ -80,10 +80,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ACMEBankDemo.mdf" />
-    <Content Include="App_Data\ACMEBankDemo_log.ldf">
-      <DependentUpon>ACMEBankDemo.mdf</DependentUpon>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -113,6 +109,9 @@
       <Project>{5DB996AF-2FAF-4B7D-905B-537C734972B4}</Project>
       <Name>ACMEBank.DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
