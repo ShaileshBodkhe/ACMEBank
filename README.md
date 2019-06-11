@@ -5,7 +5,7 @@ Based on the models Customer, Account and Transaction api routes will be as belo
 GET  
 api/customers  
 api/accounts  
-~~api/transactions  ~~  
+~~api/transactions~~  
 
 GET  
 api/customers/{id:int}  
