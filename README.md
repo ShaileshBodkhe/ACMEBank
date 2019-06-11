@@ -14,7 +14,7 @@ api/transactions/{id:int}
 
 POST  
 api/customers  
-api/customers/{customer_id}/accounts  
+api/customers/{customer-id}/accounts  
 api/accounts/{account-id}/transactions  
 
 PUT  
