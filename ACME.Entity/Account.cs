@@ -11,5 +11,8 @@ namespace ACME.Entity
         public int CustomerId { get; set; }
         public string AccountType { get; set; }
         public string Status { get; set; }
+
+        //Lazy loaded and loaded only if the specific account details are requested
+        public IEnumerable<Transaction> Transaction { get; set; }
     }
 }

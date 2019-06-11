@@ -16,6 +16,7 @@ namespace ACME.Entity
         public DateTime BirthDate { get; set; }
         public string Status { get; set; }
 
-        public List<Account> MyProperty { get; set; }
+        //Lazy loaded and loaded only if the specific customer details are requested
+        public IEnumerable<Account> Accounts { get; set; }
     }
 }

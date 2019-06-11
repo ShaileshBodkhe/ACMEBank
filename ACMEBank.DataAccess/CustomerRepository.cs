@@ -19,6 +19,7 @@ namespace ACMEBank.DataAccess
                 var dr = rows.FirstOrDefault(x => x.Field<int>("Id") == id);
                 if (dr != null)
                 {
+                    //Since this is request for specific client enrich with account details
                     return GetCustomer(dr);
                 }
             }
@@ -42,6 +43,7 @@ namespace ACMEBank.DataAccess
             var rows = GetData("Customer");
             if (rows != null)
             {
+                //Need to keep customer collection lightweight (omit details such as account or some other items)
                 customers.AddRange(rows.Select(dr => new Customer
                 {
                     Id = dr.Field<int>("Id"),
