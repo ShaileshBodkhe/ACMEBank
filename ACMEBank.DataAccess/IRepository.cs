@@ -11,9 +11,7 @@ namespace ACMEBank.DataAccess
     {
         T Get(int id);
         IEnumerable<T> Get();
-
         T Create(T t);
-
         void Delete(int id);
     }
 }

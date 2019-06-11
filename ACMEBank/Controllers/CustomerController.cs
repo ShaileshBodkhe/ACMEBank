@@ -9,29 +9,28 @@ using System.Web.Http;
 
 namespace ACMEBank.Controllers
 {
-    public class CustomerController : ApiController
+    public class CustomerController : ACMEControllerBase
     {
         IRepository<Customer> repo = new CustomerRepository();
 
+        [Route("api/customers/{id:int}")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
             var answer = repo.Get(id);
-            if (answer == null)
-            {
-                return NotFound();
-            }
-            return Ok(answer);
+            return OkOrNotFound(answer);
         }
 
         [HttpGet]
+        [Route("api/customers")]
         public IHttpActionResult Get()
         {
             var answer = repo.Get();
-            return Ok(answer);
+            return OkOrNotFound(answer);
         }
 
         [HttpPost]
+        [Route("api/customers")]
         public IHttpActionResult Create([FromBody]Customer customer)
         {
             var emailExist = repo.Get().Any(c => string.Equals(c.Email, customer.Email, StringComparison.OrdinalIgnoreCase));
@@ -44,6 +43,7 @@ namespace ACMEBank.Controllers
         }
 
         [HttpPut]
+        [Route("api/customers/{id:int}")]
         public IHttpActionResult Save([FromBody]Customer customer)
         {
             if (customer == null)
@@ -67,6 +67,7 @@ namespace ACMEBank.Controllers
         }
 
         [HttpDelete]
+        [Route("api/customers/{id:int}")]
         public IHttpActionResult Delete(int id)
         {
             var answer = repo.Get(id);

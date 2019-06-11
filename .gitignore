@@ -3,3 +3,6 @@
 .vs/ACMEBank/v15/Server/sqlite3/storage.ide-shm
 .vs/ACMEBank/v15/Server/sqlite3/storage.ide
 .vs/ACMEBank/v15/Server/sqlite3/db.lock
+.vs/ACMEBank/v15/.suo
+ACME.Entity/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+ACMEBank.DataAccess/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache

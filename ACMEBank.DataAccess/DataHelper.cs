@@ -24,6 +24,9 @@ namespace ACMEBank.DataAccess
                 dt.Columns.Add("LastName", typeof(string));
                 dt.Columns.Add("Email", typeof(string));
                 dt.Columns.Add("Address", typeof(string));
+                dt.Columns.Add("IsMarried", typeof(bool));
+                dt.Columns.Add("BirthDate", typeof(DateTime));
+                dt.Columns.Add("Status", typeof(string));
 
                 var dr = dt.NewRow();
                 dr["Id"] = 1;
@@ -31,6 +34,9 @@ namespace ACMEBank.DataAccess
                 dr["LastName"] = "Doe";
                 dr["Email"] = "John.Doe@gmail.com";
                 dr["Address"] = "111 W Addison ave, Chicago, IL";
+                dr["IsMarried"] = true;
+                dr["BirthDate"] = DateTime.Parse("02/02/1970");
+                dr["Status"] = "Active";
                 dt.Rows.Add(dr);
 
                 var dr1 = dt.NewRow();
@@ -39,6 +45,9 @@ namespace ACMEBank.DataAccess
                 dr1["LastName"] = "Doe Two";
                 dr1["Email"] = "John.Doe.Two@gmail.com";
                 dr1["Address"] = "222 S NY ave, NYC, NY";
+                dr["IsMarried"] = false;
+                dr["BirthDate"] = DateTime.Parse("02/02/2001");
+                dr["Status"] = "Active";
                 dt.Rows.Add(dr1);
 
                 var dr2 = dt.NewRow();
@@ -47,6 +56,9 @@ namespace ACMEBank.DataAccess
                 dr2["LastName"] = "Doe Three";
                 dr2["Email"] = "John.Doe.Three@gmail.com";
                 dr2["Address"] = "333 W Monroe ave, Princeton, NJ";
+                dr["IsMarried"] = true;
+                dr["BirthDate"] = DateTime.Parse("02/02/1990");
+                dr["Status"] = "Inactive";
                 dt.Rows.Add(dr2);
 
                 var dr3 = dt.NewRow();
@@ -55,6 +67,9 @@ namespace ACMEBank.DataAccess
                 dr3["LastName"] = "Doe Four";
                 dr3["Email"] = "John.Doe.Four@gmail.com";
                 dr3["Address"] = "333 W Monroe ave, Princeton, NJ";
+                dr["IsMarried"] = false;
+                dr["BirthDate"] = DateTime.Parse("02/02/1985");
+                dr["Status"] = "Active";
                 dt.Rows.Add(dr3);
 
                 ds.Tables.Add(dt);
@@ -72,7 +87,7 @@ namespace ACMEBank.DataAccess
             var dt = new DataTable("Account");
             dt.Columns.Add("Id", typeof(int)).AutoIncrement = true;
             dt.Columns.Add("CustomerId", typeof(int));
-            dt.Columns.Add("AccountType",typeof(string));
+            dt.Columns.Add("AccountType", typeof(string));
             dt.Columns.Add("Status", typeof(string));
 
             var dr = dt.NewRow();
@@ -117,75 +132,86 @@ namespace ACMEBank.DataAccess
         {
             var dt = new DataTable("Transaction");
             dt.Columns.Add("Id", typeof(int)).AutoIncrement = true;
+            dt.Columns.Add("AccountId", typeof(int));
             dt.Columns.Add("Amount", typeof(decimal));
-            dt.Columns.Add("Type", typeof(int));
+            dt.Columns.Add("Type", typeof(string));
             int i = 0;
             var dr = dt.NewRow();
             dr["Id"] = i++;
             dr["Amount"] = 10.20;
-            dr["Type"] = 1;
+            dr["AccountId"] = 1;
+            dr["Type"] = "Cr";
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
             dr["Amount"] = 24.23;
-            dr["Type"] = 2;
-                dt.Rows.Add(dr);
+            dr["AccountId"] = 2;
+            dr["Type"] = "Cr";
+            dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
             dr["Amount"] = 1;
-            dr["Type"] = 2;
+            dr["AccountId"] = 1;
+            dr["Type"] = "Dr";
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
+            dr["AccountId"] = 2;
             dr["Amount"] = 20.50;
-            dr["Type"] = 1;
+            dr["Type"] = "Cr";
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
+            dr["AccountId"] = 3;
             dr["Amount"] = 50;
-            dr["Type"] =1 ;
+            dr["Type"] = "Dr";
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
             dr["Amount"] = 12;
-            dr["Type"] = 2;
+            dr["AccountId"] = 4;
+            dr["Type"] = "Cr";
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
             dr["Amount"] = 21;
-            dr["Type"] = 1;
+            dr["AccountId"] = 5;
+            dr["Type"] = "Dr";
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
+            dr["AccountId"] = 5;
             dr["Amount"] = 9.80;
-            dr["Type"] =2 ;
+            dr["Type"] = "Cr";
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
+            dr["AccountId"] = 4;
             dr["Amount"] = 7.80;
-            dr["Type"] = 2;
+            dr["Type"] = "Cr";
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
+            dr["AccountId"] = 5;
             dr["Amount"] = 98.45;
-            dr["Type"] = 1;
+            dr["Type"] = "Dr";
             dt.Rows.Add(dr);
 
             dr = dt.NewRow();
             dr["Id"] = i++;
+            dr["AccountId"] = 3;
             dr["Amount"] = 40.60;
-            dr["Type"] = 1;
+            dr["Type"] = "Dr";
             dt.Rows.Add(dr);
-
 
             return dt;
         }
