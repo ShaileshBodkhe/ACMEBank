@@ -11,7 +11,7 @@ namespace ACMEBank.Controllers
 {
     public class CustomerController : ACMEControllerBase
     {
-        IRepository<Customer> repo = new CustomerRepository();
+        Repository<Customer> repo = new CustomerRepository();
 
         [Route("api/customers/{id:int}")]
         [HttpGet]

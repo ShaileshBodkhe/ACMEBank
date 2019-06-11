@@ -11,7 +11,7 @@ namespace ACMEBank.Controllers
 {
     public class AccountController : ACMEControllerBase
     {
-        IRepository<Account> repo = new AccountRepository();
+        Repository<Account> repo = new AccountRepository();
 
         [Route("api/accounts/{id:int}")]
         [HttpGet]

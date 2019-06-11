@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ACMEBank.DataAccess
 {
-    public abstract class Repository<T> : IRepository<T> where T : EntityBase
+    public abstract class Repository<T> where T : EntityBase
     {
         public abstract T Get(int id);
 

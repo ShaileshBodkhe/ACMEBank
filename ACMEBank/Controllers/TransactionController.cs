@@ -11,7 +11,7 @@ namespace ACMEBank.Controllers
 {
     public class TransactionController : ACMEControllerBase
     {
-        IRepository<Transaction> repo = new TransactionRepository();
+        Repository<Transaction> repo = new TransactionRepository();
 
         [Route("api/transactions/{id:int}")]
         [HttpGet]
